@@ -92,6 +92,12 @@ Fixed a false negative in `StringLiteralEqualityCheck` for `new String(...)` com
 
 ## GitHub Activity
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Abhishekp0106/Abhishekp0106/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Abhishekp0106/Abhishekp0106/output/pacman-contribution-graph.svg">
+  <img alt="Pac-Man contribution graph" src="https://raw.githubusercontent.com/Abhishekp0106/Abhishekp0106/output/pacman-contribution-graph.svg">
+</picture>
+
 ![GitHub Streak](https://streak-stats.demolab.com/?user=Abhishekp0106&theme=radical&hide_border=true)
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Abhishekp0106&show_icons=true&theme=radical&hide_border=true&count_private=true)
