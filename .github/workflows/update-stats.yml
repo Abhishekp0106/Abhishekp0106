@@ -1,0 +1,40 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Run every 30 minutes
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create assets directory
+        run: mkdir -p assets
+
+      - name: Fetch GitHub Streak
+        run: curl -s "https://streak-stats.demolab.com/?user=Abhishekp0106&theme=radical&hide_border=true" > assets/github-streak.svg
+
+      - name: Fetch GitHub Stats
+        # Update the domain here when you host your own vercel instance
+        run: curl -s "https://githubreadmestats-rho.vercel.app/api?username=Abhishekp0106&show_icons=true&theme=radical&hide_border=true&count_private=true" > assets/github-stats.svg
+
+      - name: Fetch Top Languages
+        # Update the domain here when you host your own vercel instance
+        run: curl -s "https://githubreadmestats-rho.vercel.app/api/top-langs/?username=Abhishekp0106&layout=compact&theme=radical&hide_border=true" > assets/top-langs.svg
+
+      - name: Fetch Activity Graph
+        run: curl -s "https://github-readme-activity-graph.vercel.app/graph?username=Abhishekp0106&theme=redical&hide_border=true" > assets/activity-graph.svg
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add assets/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update GitHub stats images" && git push)
